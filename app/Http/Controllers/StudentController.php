@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class StudentController extends Controller
 {
-    public function newStudentForm()
+    public function newStudentForm() : View
     {
-        return view('students.create');
+        return view('student.studentAddView');
     }
 
     public function createNewStudent(Request $request) : RedirectResponse
@@ -17,7 +19,7 @@ class StudentController extends Controller
             'student_number' => 'required|string|max:20|unique:students,student_number',
             'first_name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
-            'gender'=> 'required', 
+            'gender'=> 'required',
             'email' => 'required|email|unique',
             'phone_number' => 'required|string|max:20',
             'address' => 'nullable|string',
@@ -25,7 +27,7 @@ class StudentController extends Controller
             'date_of_birth' => 'nullable|date',
         ]);
 
-        $student = new Student; 
+        $student = new Student;
         $student->student_name = $validatedData['student_number'];
         $student->first_name = $validatedData['first_name'];
         $student->last_name = $validatedData['last_name'];

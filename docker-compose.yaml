@@ -1,17 +1,17 @@
 services:
   app:
     build:
-      context: ./ 
+      context: ./
       dockerfile: app.dockerfile
     working_dir: /var/www
     volumes:
       - ./:/var/www
     depends_on:
       - database
-  
+
   webserver:
     build:
-      context: ./ 
+      context: ./
       dockerfile: webserver.dockerfile
     working_dir: /var/www
     ports:
@@ -31,7 +31,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_DATABASE}
     ports:
-      - "54321:5432"
+      - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
 

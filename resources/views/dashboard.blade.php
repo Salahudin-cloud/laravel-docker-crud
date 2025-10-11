@@ -3,8 +3,8 @@
 @section('title', 'Home Page')
 
 @section('content')
-    <a class="btn btn-success" href="">Tambah Mahasiswa</a>  
-    <h1 class="fw-bold">Data Mahasiswa</h1>
+    <a class="btn btn-success" href="/student">Tambah Mahasiswa</a>
+    <h1 class="fw-bold pt-2">Data Mahasiswa</h1>
     <table class="table table-striped align-items-center">
         <thead class="border">
             <tr>

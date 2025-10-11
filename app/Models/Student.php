@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\View\View;
 
 class Student extends Model
 {
@@ -15,5 +16,6 @@ class Student extends Model
         'phone_number',
         'address',
         'enrollment_year',
-        'date_of_birth',
+        'date_of_birth'
+    ];
 }
