@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\View\View;
 
 class Student extends Model
 {
+    protected $table = 'students';
     protected $fillable = [
         'student_number',
         'first_name',
@@ -16,6 +17,7 @@ class Student extends Model
         'phone_number',
         'address',
         'enrollment_year',
-        'date_of_birth'
+        'date_of_birth',
+        'department_id',
     ];
 }

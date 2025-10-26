@@ -22,6 +22,11 @@
             </tr>
         </thead>
         <tbody>
+{{--            @php--}}
+{{--                dump($students);--}}
+{{--                exit;--}}
+
+{{--            @endphp--}}
             @if ($students->isEmpty())
                 <tr>
                     <td colspan="11" class="text-center">Tidak ada data mahasiswa.</td>
