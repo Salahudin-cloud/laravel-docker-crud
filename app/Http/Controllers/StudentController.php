@@ -68,6 +68,12 @@ class StudentController extends Controller
         ]);
         $student->update($validatedData);
         return redirect("/")->with('success', 'Berhasil memperbarui data mahasiswa');
+    }
 
+    public function deleteStudent($id): RedirectResponse
+    {
+        $student = Student::findOrFail($id);
+        $student->delete();
+        return redirect("/")->with('success', 'Berhasil menghapus data mahasiswa');
     }
 }
