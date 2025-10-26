@@ -31,7 +31,14 @@
                         <a href="{{ route('toEditDepartmentForm', $department->id ) }}"
                            class="btn btn-sm btn-warning"><i
                                 class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="{{ $department->id  }}" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        <form action="{{ route('deleteDepartment', $department->id) }}" method="POST" class="d-inline"
+                              onsubmit="return confirm('Yakin ingin menghapus jurusan ini?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

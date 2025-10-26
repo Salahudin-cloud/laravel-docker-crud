@@ -67,4 +67,10 @@ class DepartmentController extends Controller
         return redirect('/department')->with('success', 'Berhasil memperbarui jurusan!');
     }
 
+    public function deleteDepartment($id): RedirectResponse
+    {
+        $department = Department::findOrFail($id);
+        $department->delete();
+        return redirect('/department')->with('success', 'Berhasil menghapus jurusan!');
+    }
 }
