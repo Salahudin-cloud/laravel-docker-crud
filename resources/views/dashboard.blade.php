@@ -45,7 +45,7 @@
                         <td>{{ $student->address }}</td>
                         <td>{{ $student->enrollment_year }}</td>
                         <td class="d-flex gap-2">
-                            <a href="{{ $student->id  }}" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{{ route('toUpdateStudentForm', $student->id)  }}" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a href="{{ $student->id  }}" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>

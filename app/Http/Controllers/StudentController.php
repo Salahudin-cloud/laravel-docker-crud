@@ -6,14 +6,23 @@ use App\Models\Department;
 use App\Models\Student;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class StudentController extends Controller
 {
-    public function newStudentForm() : View
+    public function newStudentForm(): View
     {
         $departments = Department::all();
         return view('student.studentAddView', compact('departments'));
+    }
+
+    public function updateStudentForm($id): View
+    {
+        $student = Student::findOrFail($id);
+        $departments = Department::all();
+
+        return view('student.studentUpdateView', compact('student', 'departments'));
     }
 
     public function storeNewStudent(Request $request)
@@ -34,5 +43,31 @@ class StudentController extends Controller
         Student::create($validatedData);
 
         return redirect("/")->with('success', 'Student Added Successfully');
+    }
+
+    public function updateStudent(Request $request, $id): RedirectResponse
+    {
+        $student = Student::findOrFail($id);
+        $validatedData = $request->validate([
+            'student_number' => [
+                'required', 'string', 'max:20',
+                Rule::unique('students', 'student_number')->ignore($id),
+            ],
+            'first_name' => 'required|string|max:100',
+            'last_name' => 'required|string|max:100',
+            'gender' => 'required',
+            'email' => [
+                'required', 'email',
+                Rule::unique('students', 'email')->ignore($id),
+            ],
+            'phone_number' => 'required|string|max:20',
+            'address' => 'nullable|string',
+            'enrollment_year' => 'required|string|max:4',
+            'date_of_birth' => 'nullable|date',
+            'department_id' => 'required|exists:departments,id',
+        ]);
+        $student->update($validatedData);
+        return redirect("/")->with('success', 'Berhasil memperbarui data mahasiswa');
+
     }
 }
