@@ -14,10 +14,10 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-dark mb-4">
         <div class="container">
-            <a class="navbar-brand text-light fw-bold" href="#">MyApp</a>
+            <a class="navbar-brand text-light fw-bold" href="/">MyApp</a>
 
             <div>
-                <a class="text-light text-decoration-none" href="">Jurusan</a>
+                <a class="text-light text-decoration-none" href="/department">Jurusan</a>
                 <a class="text-light text-decoration-none" href="/student">Mahasiswa</a>
             </div>
         </div>
