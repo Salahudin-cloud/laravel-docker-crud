@@ -31,7 +31,7 @@ class DepartmentController extends Controller
 
         Department::create($validated);
 
-        return redirect('/department');
+        return redirect('/department')->with('success', 'Berhasil menambahkan jurusan baru!');
     }
 
 }
