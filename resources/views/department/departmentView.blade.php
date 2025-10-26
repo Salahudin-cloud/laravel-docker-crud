@@ -28,7 +28,9 @@
                     <td>{{ $department->name  }}</td>
                     <td>{{ $department->head }}</td>
                     <td class="d-flex gap-2">
-                        <a href="{{ $department->id  }}" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{{ route('toEditDepartmentForm', $department->id ) }}"
+                           class="btn btn-sm btn-warning"><i
+                                class="fa-solid fa-pen-to-square"></i></a>
                         <a href="{{ $department->id  }}" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
