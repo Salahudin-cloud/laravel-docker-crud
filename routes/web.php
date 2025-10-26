@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DepartmentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StudentController;
@@ -11,4 +12,10 @@ Route::controller(StudentController::class)->group(function () {
     Route::post('/student', 'store');
     Route::patch('/student', 'store');
     Route::delete('/student/{id}', 'destroy');
+});
+
+Route::controller(DepartmentController::class)->group(function () {
+    Route::get('/department', 'index');
+    Route::get('/department/add', 'newDepartmentForm');
+    Route::post('/department/add', 'storeNewDepartment')->name("saveDepartment");
 });

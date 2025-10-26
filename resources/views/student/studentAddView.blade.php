@@ -7,7 +7,7 @@
     <div class="container">
         <a href="/" class="btn btn-success">Kembali</a>
         <h2 class="fw-bold pt-2">Tambah Mahasiswa</h2>
-        <form action="{{  route('store') }}">
+        <form>
             @csrf
             <div class="mb-3">
                 <label for="studentNumber" class="form-label">Nomor Mahasiswa</label>
