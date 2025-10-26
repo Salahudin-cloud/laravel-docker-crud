@@ -14,7 +14,7 @@ class StudentController extends Controller
         return view('student.studentAddView');
     }
 
-    public function createNewStudent(Request $request) : RedirectResponse
+    public function storeNewStudent(Request $request)
     {
         $validatedData = $request->validate([
             'student_number' => 'required|string|max:20|unique:students,student_number',
