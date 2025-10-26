@@ -12,7 +12,7 @@ Route::controller(StudentController::class)->group(function () {
     Route::get('/student/{id}', 'updateStudentForm')->name('toUpdateStudentForm');
     Route::post('/student', 'storeNewStudent')->name("saveStudent");
     Route::patch('/student/{id}/edit', 'updateStudent')->name("updateStudent");
-    Route::delete('/student/{id}', 'destroy');
+    Route::delete('/student/{id}', 'deleteStudent')->name("deleteStudent");
 });
 
 Route::controller(DepartmentController::class)->group(function () {
