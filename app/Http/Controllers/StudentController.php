@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Student;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,7 +12,8 @@ class StudentController extends Controller
 {
     public function newStudentForm() : View
     {
-        return view('student.studentAddView');
+        $departments = Department::all();
+        return view('student.studentAddView', compact('departments'));
     }
 
     public function storeNewStudent(Request $request)
@@ -26,6 +28,7 @@ class StudentController extends Controller
             'address' => 'nullable|string',
             'enrollment_year' => 'required|string|max:4',
             'date_of_birth' => 'nullable|date',
+            'department_id' => 'required|exists:departments,id',
         ]);
 
         Student::create($validatedData);
