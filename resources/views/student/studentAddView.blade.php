@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="container">
-        <a href="/" class="btn btn-success mb-3">Kembali</a>
+        <a href="/student" class="btn btn-success mb-3">Kembali</a>
         <h2 class="fw-bold pt-2 mb-4">Tambah Mahasiswa</h2>
 
         <form action="{{ route('saveStudent') }}" method="POST">
@@ -15,7 +15,8 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="studentNumber" class="form-label">Nomor Mahasiswa</label>
-                        <input type="text" class="form-control" id="studentNumber" name="student_number" autocomplete="off">
+                        <input type="text" class="form-control" id="studentNumber" name="student_number"
+                               autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="firstName" class="form-label">Nama Depan</label>
@@ -61,11 +62,13 @@
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Alamat</label>
-                        <textarea class="form-control" id="address" name="address" rows="3" style="resize:none"></textarea>
+                        <textarea class="form-control" id="address" name="address" rows="3"
+                                  style="resize:none"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="enrollmentYear" class="form-label">Tahun Masuk</label>
-                        <input type="text" class="form-control" id="enrollmentYear" name="enrollment_year" autocomplete="off">
+                        <input type="text" class="form-control" id="enrollmentYear" name="enrollment_year"
+                               autocomplete="off">
                     </div>
 
                 </div>

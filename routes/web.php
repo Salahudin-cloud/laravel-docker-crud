@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DashboardController::class, 'index']);
 
 Route::controller(StudentController::class)->group(function () {
-    Route::get('/student', 'newStudentForm');
+    Route::get('/student', 'index');
+    Route::get('/student/add', 'newStudentForm');
     Route::get('/student/{id}', 'updateStudentForm')->name('toUpdateStudentForm');
     Route::post('/student', 'storeNewStudent')->name("saveStudent");
     Route::patch('/student/{id}/edit', 'updateStudent')->name("updateStudent");
