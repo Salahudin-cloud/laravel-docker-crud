@@ -18,14 +18,14 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'student_name' => $this->faker->randomNumber(20),
+            'student_number' => 'STD-' . $this->faker->unique()->numerify(str_repeat('#', 16)),
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'gender' => $this->faker->randomElement(['MALE', 'FEMALE']),
             'email' => $this->faker->unique()->safeEmail(),
             'phone_number' => $this->faker->phoneNumber(),
             'address' => $this->faker->address(),
-            'enrolment_year' => $this->faker->year(),
+            'enrollment_year' => $this->faker->year(),
             'date_of_birth' => $this->faker->date(),
             'department_id' => Department::inRandomOrder()->first()->id,
         ];
