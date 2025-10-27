@@ -11,6 +11,12 @@ use Illuminate\View\View;
 
 class StudentController extends Controller
 {
+    public function index(): View
+    {
+        $students = Student::all();
+        return view('student.studentView', compact('students'));
+    }
+
     public function newStudentForm(): View
     {
         $departments = Department::all();
