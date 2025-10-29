@@ -25,7 +25,7 @@ class StudentFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'phone_number' => $this->faker->phoneNumber(),
             'address' => $this->faker->address(),
-            'enrollment_year' => $this->faker->year(),
+            'enrollment_year' => (string)$this->faker->numberBetween(2021, 2025),
             'date_of_birth' => $this->faker->date(),
             'department_id' => Department::inRandomOrder()->first()->id,
         ];
