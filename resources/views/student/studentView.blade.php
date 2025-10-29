@@ -34,7 +34,7 @@
         @else
             @foreach ($students as $student)
                 <tr>
-                    <td>1</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $student->student_number }}</td>
                     <td>{{ $student->first_name  }}</td>
                     <td>{{ $student->last_name }}</td>
