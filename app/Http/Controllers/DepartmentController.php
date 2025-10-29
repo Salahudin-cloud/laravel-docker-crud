@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -13,7 +12,7 @@ class DepartmentController extends Controller
 {
     public function index(): view
     {
-        $departments = DB::table('departments')->get();
+        $departments = Department::paginate(10);
         return view('department.departmentView', ['departments' => $departments]);
     }
 
