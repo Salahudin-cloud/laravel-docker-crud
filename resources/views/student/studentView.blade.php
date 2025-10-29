@@ -32,9 +32,9 @@
                 <td colspan="11" class="text-center">Tidak ada data mahasiswa.</td>
             </tr>
         @else
-            @foreach ($students as $student)
+            @foreach ($students as $index => $student)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $student->firstItem() + $index}}</td>
                     <td>{{ $student->student_number }}</td>
                     <td>{{ $student->first_name  }}</td>
                     <td>{{ $student->last_name }}</td>
@@ -62,4 +62,7 @@
         </tbody>
     </table>
 
+    <div class="mt-4">
+        {{ $students->links() }}
+    </div>
 @endsection

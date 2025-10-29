@@ -4,7 +4,8 @@
 
 @section('content')
     <a class="btn btn-success" href="/department/add">Tambah Jurusan</a>
-    <h1 class="fw-bold pt-2">Data Mahasiswa</h1>
+    <h1 class="fw-bold pt-2">Data Jurusan</h1>
+
     <table class="table table-striped align-items-center">
         <thead class="border">
         <tr>
@@ -18,19 +19,19 @@
         <tbody>
         @if ($departments->isEmpty())
             <tr>
-                <td colspan="11" class="text-center">Tidak ada data jurusan.</td>
+                <td colspan="5" class="text-center">Tidak ada data jurusan.</td>
             </tr>
         @else
-            @foreach ($departments as $department)
+            @foreach ($departments as $index => $department)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $departments->firstItem() + $index }}</td>
                     <td>{{ $department->code }}</td>
-                    <td>{{ $department->name  }}</td>
+                    <td>{{ $department->name }}</td>
                     <td>{{ $department->head }}</td>
                     <td class="d-flex gap-2">
-                        <a href="{{ route('toEditDepartmentForm', $department->id ) }}"
-                           class="btn btn-sm btn-warning"><i
-                                class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{{ route('toEditDepartmentForm', $department->id) }}" class="btn btn-sm btn-warning">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
                         <form action="{{ route('deleteDepartment', $department->id) }}" method="POST" class="d-inline"
                               onsubmit="return confirm('Yakin ingin menghapus jurusan ini?')">
                             @csrf
@@ -46,4 +47,7 @@
         </tbody>
     </table>
 
+    <div class="mt-4">
+        {{ $departments->links() }}
+    </div>
 @endsection
